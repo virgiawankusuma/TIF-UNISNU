@@ -1,2 +1,2 @@
 # tif-unisnu
-This repository for containing my Final Project (Submission) on Belajar Dasar Pemrograman Web (Dicoding Class)
+This repository containing my Final Project (Submission) on [Belajar Dasar Pemrograman Web](https://www.dicoding.com/academies/123) (Dicoding Class)
