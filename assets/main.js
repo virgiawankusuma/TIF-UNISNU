@@ -12,6 +12,6 @@ window.addEventListener("scroll", (event) => {
 const menu = document.querySelector(".menu");
 const menuButton = document.querySelector(".menu-button");
 
-menuButton.addEventListener("click", (event) => {
+menuButton.addEventListener("click", () => {
   menu.classList.toggle("open");
 });

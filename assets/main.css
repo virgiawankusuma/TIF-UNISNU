@@ -15,13 +15,13 @@ h3,
 h4,
 h5,
 h6 {
-    color: #1D2B33;
+    color: #252525;
     font-family: 'Poppins', sans-serif;
 }
 
-a {color: #3d52d5;}
+a {color: #00603D;}
 
-a:hover,a:active {color: #090C9B;}
+a:hover,a:active {color: #EA6645;}
 
 q {
     margin-top: 7px;
@@ -31,14 +31,14 @@ q {
 
 q::after, q::before {
     font-family: serif;
-    font-weight: bold;
+    font-weight: 600;
     font-size: x-large;
 }
 
 body {
-    color: #1D2B33;
+    color: #252525;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #FFF;
     display: flex;
     flex-direction: column;
     font-family: 'Open Sans', sans-serif;
@@ -50,25 +50,27 @@ header {
 
 nav {
     position: fixed;
-    background-color: #ffffff;
+    background-color: #FFF;
     display: flex;
     padding: 0 64px;
     height: auto;
     width: 100%;
     justify-content: space-between;
-    /* box-shadow:rgba(0, 0, 0, 0.2) 0px 1px 7px 0px; */
+    align-items: center;
+    z-index: 9999;
+    transition: all 0.15s ease-out;
 }
 
 nav h1 {
     margin: 16px 0;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #3d52d5;
+    color: #00603D;
 }
 
 nav h1 a {text-decoration: none;}
 
-article h2 span {border-bottom: 5px solid #b4c5e4;}
+article h2 span {border-bottom: 5px solid #008844;}
 
 .shadow-bottom {box-shadow:rgba(0, 0, 0, 0.2) 0px 1px 7px 0px;}
 
@@ -88,16 +90,23 @@ article h2 span {border-bottom: 5px solid #b4c5e4;}
 }
 
 .menu-list a {
-    color: #3d52d5;
+    color: #00603D;
     text-decoration: none;
+    transition: all 0.1s ease-out;
 }
 
-.menu-list a:hover, .menu-list a:active {
-    font-weight: bold;
-    transition: ease-out;
-    transition-duration: 0.2s;
-    border-bottom: 2px solid #b4c5e4;
-    color: #090C9B;
+.menu-list a:after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #008844;
+    transition: width .3s;
+}
+.menu-list a:hover, .menu-list a:active {color: #EA6645;}
+
+.menu-list a:hover:after, .menu-list a:active:after {
+    width: 100%;
 }
 
 .menu-button {display: none;}
@@ -107,7 +116,7 @@ article h2 span {border-bottom: 5px solid #b4c5e4;}
     display: flex;
     flex-direction: row;
     margin: 0 32px;
-    vertical-align: middle;
+    align-items: center;
 }
 
 .jumbotron .left {
@@ -138,23 +147,59 @@ article h2 span {border-bottom: 5px solid #b4c5e4;}
     word-spacing: 5px;
 }
 
-.jumbotron .right img {width: 100%;}
+.jumbotron .right img {
+    width: 100%;
+    border-radius: 10px;
+    transform: rotate(2deg);
+    scale: 0.9;
+    filter: brightness(0.9);
+    transition: all 0.1s ease-out;
+}
+
+.jumbotron .right img:hover {
+    transform: rotate(0deg);
+    scale: 1;
+    filter: brightness(1);
+}
 
 .button-primary {
     margin: 20px 0; 
+    position: relative;
     display: block;
     font-size: 20px;
-    color: #ffffff;
+    color: #FFF;
     padding: 10px 20px;
-    background-color: #3D52D5;
+    background-color: #00603D;
     border: none;
     cursor: pointer;
+    transition: all 0.1s ease-out;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
-.button-primary:hover, 
-.button-primary:active {background-color: #090c9b;}
+.button-primary:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 0%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.1;
+    transform: skewX(-45deg);
+    transition: width .3s;
+    border-radius: 5px;
+}
 
-.button-block {width: 100%;}
+.button-primary:hover:after, .button-primary:active:after {
+    width: 120%;
+}
+
+.button-block {
+    display: block;
+    width: 100%;
+}
 
 main {margin: 32px 32px 0;}
 
@@ -187,17 +232,24 @@ section {padding: 15px 0px;}
 
 section h3 {margin-bottom: 10px;}
 
-#profil section div {
+#profile section div {
     margin-top: 28px;
     word-spacing: 7px;
 }
 
-#profil img {
+#profile img {
     padding-bottom: 20px;
     object-fit: scale-down;
+    border-radius: 24px;
+    filter: brightness(0.9);
+    transition: all 0.1s ease-out;
 }
 
-#profil p {
+#profile img:hover {
+    filter: brightness(1);
+}
+
+#profile p {
     margin-top: 15px;
     line-height: 30px;
 }
@@ -212,6 +264,12 @@ section h3 {margin-bottom: 10px;}
     max-width: 50vh;
     width: 100%;
     padding-bottom: 20px;
+    filter: saturate(0);
+    transition: all 0.1s ease-out;
+}
+
+#testimoni img:hover {
+    filter: saturate(1);
 }
 
 #testimoni q {
@@ -221,15 +279,19 @@ section h3 {margin-bottom: 10px;}
 }
 
 span.as {
-    color: #090C9B;
+    color: #EA6645;
     font-size: larger;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 #kontak {
     margin: 0 -32px -32px;
     text-align: center;
-    background-color: #b4c5e4;
+    background-color: #008844;
+}
+
+#kontak h2 {
+    color: #FFF;
 }
 
 form div.flex-column {
@@ -244,7 +306,9 @@ input.form-control {
     padding: .375rem .75rem;
     font-size: large;
     line-height: 1.5;
-    border: 1px solid #1D2B33;
+    border: 1px solid #252525;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 textarea.form-control {
@@ -252,9 +316,17 @@ textarea.form-control {
     padding: .375rem .75rem;
     font-size: large;
     line-height: 1.5;
-    border: 1px solid #1D2B33;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+input.form-control:focus, textarea.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+}
 
 #biodata {
     text-align: center;
@@ -278,21 +350,22 @@ span.info {
 
 footer {
     text-align: center;
-    color: #ffffff;
-    background-color: #090C9B;
-    font-weight: bold;
+    color: #FFF;
+    background-color: rgba(234, 102, 69, 0.8);
+    font-weight: 600;
     padding: 7vh 0;
 }
 
 footer a{
     text-decoration: none;
-    color: #ffffff;
+    color: #FFF;
+    transition: all 0.1s ease-out;
 }
 
 footer a:hover,
 footer a:active{
     text-decoration: none;
-    color: #b4c5e4;
+    color: #008844
 }
 
 @media (max-width: 800px) {
@@ -322,6 +395,7 @@ footer a:active{
     }
 
     .jumbotron{
+        display: flex;
         text-align: center;
         margin-top: 0;
         flex-direction: column-reverse;
@@ -351,7 +425,7 @@ footer a:active{
         padding: 0px 8% 26px 8%;
     }
 
-    #profil section div {margin: 0 0 0 0;}
+    #profile section div {margin: 0 0 0 0;}
 
     #biodata {
         padding: 0px 0% 26px 0%;
@@ -367,9 +441,9 @@ footer a:active{
     nav{
         padding: 0 46px;
     }
+
     .menu-list{
-        background-color: #b4c5e4;
-        /* background-color: rgba(180, 197, 228, 0.9); */
+        background-color: #008844;
         fill-opacity: 0.5;
         position: fixed;
         top: 0;
@@ -382,7 +456,6 @@ footer a:active{
         align-items: flex-end;
         transform: translateX(100%);
         transition: transform 0.5s;
-        /* border: 200px solid; */
     }
     
     .menu-list li {
@@ -391,7 +464,7 @@ footer a:active{
     }
     
     .menu-list a {
-        color: #ffffff;
+        color: #FFF;
     }
     
     .open .menu-list{
@@ -405,8 +478,8 @@ footer a:active{
         height: 40px;
         border: 0;
         border-radius: 3px;
-        background-color: #ffffff ;
-        color: #090C9B;
+        background-color: #FFF ;
+        color: #EA6645;
         outline: none;
         font-size: larger;
         display: block;
@@ -426,10 +499,10 @@ footer a:active{
     }
 
     .menu-list a:hover, .menu-list a:active {
-        font-weight: bold;
+        font-weight: 600;
         transition: ease-out;
         transition-duration: 0.2s;
-        border-bottom: 2px solid #090c9b;
-        color: #090c9b;
+        border-bottom: 2px solid #EA6645;
+        color: #EA6645;
     }
 }
